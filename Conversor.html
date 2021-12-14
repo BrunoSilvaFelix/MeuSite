@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Unidades</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(to right, rgb(40, 220, 80), rgb(40, 90, 50))
+        }
+        .box{
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 15px;
+            width: 40%;
+        }
+        fieldset{
+            border: 3px solid forestgreen;
+        }
+        legend{
+            border: 1px solid forestgreen;
+            padding: 10px;
+            text-align: center;
+            background-color: forestgreen;
+            border-radius: 8px;
+        }
+        .inputBox{
+            position: relative;
+        }
+        .inputUser{
+            background: none;
+            border: nome;
+            border-bottom: 1px solid white;
+            outline: none;
+            color: white;
+            font-size: 15px;
+            width: 100%;
+            letter-spacing: 2px;
+        }
+        .labelInput{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .inputUser:focus ~ .labelInput,
+        .inputUser:valid ~ .labelInput{
+            top: -20px;
+            font-size: 12px;
+            color: forestgreen;
+        }
+        select{
+            border: none;
+            padding: 8px;
+            border-radius: 10px;
+            outline: none;
+        }
+        #submit_distancia{
+            background-image: linear-gradient(to right, rgb(50,205,50), rgb(60,179,113));
+            width: 100%;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #submit_distancia:hover{
+            background-image: linear-gradient(to right, rgb(34,139,34), rgb(0,128,0));
+        }
+        #submit_tempo{
+            background-image: linear-gradient(to right, rgb(50,205,50), rgb(60,179,113));
+            width: 100%;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #submit_tempo:hover{
+            background-image: linear-gradient(to right, rgb(34,139,34), rgb(0,128,0));
+        }
+        #form_distancia{
+            float: left;
+        }
+        #form_tempo{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="cgi-bin/mainConversor.py" method="post" id="form_distancia">
+            <fieldset>
+                <legend><b>Distância</b></legend>
+                <br>
+                <div class="inputBox">
+                    <input type="number" name="distancia" id="distancia" class="inputUser" required>
+                    <label for="distancia" class="labelInput">Distância</label>
+                </div>
+                <div>
+                    <label><p>De:</p></label>
+                    <select name="deDistancia">
+                        <option>Milímetros</option>
+                        <option>Centímetros</option>
+                        <option>Decímetros</option>
+                        <option selected>Metros</option>
+                        <option>Decâmetros</option>
+                        <option>Hectômetros</option>
+                        <option>Quilômetros</option>
+                    </select>
+                    <label><p>Para:</p></label>
+                    <select name="paraDistancia">
+                        <option>Milímetros</option>
+                        <option>Centímetros</option>
+                        <option>Decímetros</option>
+                        <option selected>Metros</option>
+                        <option>Decâmetros</option>
+                        <option>Hectômetros</option>
+                        <option>Quilômetros</option>
+                    </select>
+                </div>
+                <br>
+                <input type="submit" name="submit1" id="submit_distancia">
+            </fieldset>
+        </form>
+        <form action="cgi-bin/mainConversor.py" method="post" id="form_tempo">
+            <fieldset>
+                <legend><b>Tempo</b></legend>
+                <br>
+                <div class="inputBox">
+                    <input type="number" name="tempo" id="tempo" class="inputUser" required>
+                    <label for="tempo" class="labelInput">Tempo</label>
+                </div>
+                <div>
+                    <label><p>De:</p></label>
+                    <select name="deTempo">
+                        <option>Segundos</option>
+                        <option>Minutos</option>
+                        <option selected>Horas</option>
+                        <option>Anos</option>
+                    </select>
+                    <label><p>Para:</p></label>
+                    <select name="paraTempo">
+                        <option>Segundos</option>
+                        <option>Minutos</option>
+                        <option selected>Horas</option>
+                        <option>Anos</option>
+                    </select>
+                </div>
+                <br>
+                <input type="submit" name="submit2" id="submit_tempo">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
